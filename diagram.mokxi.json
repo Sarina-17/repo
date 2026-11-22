@@ -1,0 +1,1233 @@
+{
+  "version": 1,
+  "name": "Carrier for transportation",
+  "parts": [
+    {
+      "id": "esp321",
+      "type": "esp32",
+      "props": {
+        "wifiRssi": -52,
+        "wifiSsid": "Mokxi-Lab",
+        "wifiPassword": "breadboard",
+        "wifiMac": ""
+      },
+      "x": 1200,
+      "y": 120,
+      "rot": 0,
+      "locked": true,
+      "label": "ESP 32"
+    },
+    {
+      "id": "drv88331",
+      "type": "drv8833",
+      "props": {},
+      "x": 3220,
+      "y": 520,
+      "rot": 90,
+      "locked": true,
+      "label": "Motor Driver 1"
+    },
+    {
+      "id": "drv88332",
+      "type": "drv8833",
+      "props": {},
+      "x": 3200,
+      "y": 200,
+      "rot": 90,
+      "locked": true,
+      "label": "Motor Driver 2"
+    },
+    {
+      "id": "dcmotor1",
+      "type": "dcmotor",
+      "props": {
+        "model": "custom",
+        "voltage": 6,
+        "rpm": 200,
+        "resistance": 6,
+        "inertia": 120,
+        "back_emf": 0.85
+      },
+      "x": 3740,
+      "y": 420,
+      "rot": 0,
+      "locked": true,
+      "label": "Motor 2"
+    },
+    {
+      "id": "dcmotor2",
+      "type": "dcmotor",
+      "props": {
+        "model": "custom",
+        "voltage": 6,
+        "rpm": 200,
+        "resistance": 6,
+        "inertia": 120,
+        "back_emf": 0.85
+      },
+      "x": 3740,
+      "y": 640,
+      "rot": 0,
+      "locked": true,
+      "label": "Motor 1"
+    },
+    {
+      "id": "dcmotor3",
+      "type": "dcmotor",
+      "props": {
+        "model": "custom",
+        "voltage": 6,
+        "rpm": 200,
+        "resistance": 6,
+        "inertia": 120,
+        "back_emf": 0.85
+      },
+      "x": 3840,
+      "y": -20,
+      "rot": 0,
+      "locked": true,
+      "label": "Motor 4"
+    },
+    {
+      "id": "dcmotor4",
+      "type": "dcmotor",
+      "props": {
+        "model": "custom",
+        "voltage": 6,
+        "rpm": 200,
+        "resistance": 6,
+        "inertia": 120,
+        "back_emf": 0.85
+      },
+      "x": 3840,
+      "y": 200,
+      "rot": 0,
+      "locked": true,
+      "label": "Motor 3"
+    },
+    {
+      "id": "microswitch1",
+      "type": "microswitch",
+      "props": {
+        "bounce": "typical",
+        "ui_keys": "KeyL"
+      },
+      "x": 3220,
+      "y": 1020,
+      "rot": 0,
+      "locked": true,
+      "label": "Limit switch 2"
+    },
+    {
+      "id": "microswitch2",
+      "type": "microswitch",
+      "props": {
+        "bounce": "typical",
+        "ui_keys": "KeyL"
+      },
+      "x": 3040,
+      "y": 1020,
+      "rot": 0,
+      "locked": true,
+      "label": "Limit Switch 1"
+    },
+    {
+      "id": "battery1",
+      "type": "battery",
+      "props": {
+        "kind": "lipo2s",
+        "charge": 100,
+        "capacity": 2500
+      },
+      "x": 1460,
+      "y": 1080,
+      "rot": 270,
+      "locked": true,
+      "label": "2s LiPo Battery"
+    },
+    {
+      "id": "lm25961",
+      "type": "lm2596",
+      "props": {
+        "volts": 5
+      },
+      "x": 1880,
+      "y": 1240,
+      "rot": 0,
+      "locked": true,
+      "label": "5V Buck Convertor"
+    },
+    {
+      "id": "linearray1",
+      "type": "linearray",
+      "props": {
+        "threshold": 0.5
+      },
+      "x": 2140,
+      "y": -400,
+      "rot": 0,
+      "locked": true,
+      "label": "Line array"
+    },
+    {
+      "id": "hcsr041",
+      "type": "hcsr04",
+      "props": {
+        "temperature": 25
+      },
+      "x": 1560,
+      "y": -400,
+      "rot": 0,
+      "locked": true,
+      "label": "Ultrasonic sensor"
+    },
+    {
+      "id": "e18d80nk1",
+      "type": "e18d80nk",
+      "props": {
+        "range": 40,
+        "pullup": false
+      },
+      "x": 2680,
+      "y": -320,
+      "rot": 0,
+      "locked": true,
+      "label": "IR proximity switch"
+    },
+    {
+      "id": "estop1",
+      "type": "estop",
+      "props": {
+        "ui_keys": "KeyE,Space"
+      },
+      "x": 3440,
+      "y": 780,
+      "rot": 0,
+      "locked": true,
+      "label": "Emergency switch"
+    },
+    {
+      "id": "lcd1602i2c1",
+      "type": "lcd1602i2c",
+      "props": {
+        "address": 39,
+        "contrast": 0.75
+      },
+      "x": 2480,
+      "y": 1300,
+      "rot": 0,
+      "locked": true,
+      "label": "LCD"
+    },
+    {
+      "id": "bb2",
+      "type": "breadboard",
+      "props": {},
+      "x": 1660,
+      "y": 160,
+      "rot": 0,
+      "locked": true
+    }
+  ],
+  "wires": [
+    {
+      "id": "w2",
+      "from": "battery1:V-",
+      "to": "lm25961:IN-",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 1620,
+          "y": 1140
+        },
+        {
+          "x": 1620,
+          "y": 1320
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w3",
+      "from": "lm25961:OUT+",
+      "to": "bb2:bp17",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 2120,
+          "y": 1280
+        },
+        {
+          "x": 2120,
+          "y": 560
+        },
+        {
+          "x": 2080,
+          "y": 560
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w1",
+      "from": "battery1:V+",
+      "to": "lm25961:IN+",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 1860,
+          "y": 1180
+        },
+        {
+          "x": 1860,
+          "y": 1280
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w7",
+      "from": "hcsr041:VCC",
+      "to": "bb2:bp18",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 1620,
+          "y": -180
+        },
+        {
+          "x": 2100,
+          "y": -180
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w8",
+      "from": "linearray1:VCC",
+      "to": "bb2:bp19",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 2200,
+          "y": 120
+        },
+        {
+          "x": 2120,
+          "y": 120
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w9",
+      "from": "e18d80nk1:VCC",
+      "to": "bb2:bp20",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 2740,
+          "y": 400
+        },
+        {
+          "x": 2140,
+          "y": 400
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w10",
+      "from": "lcd1602i2c1:VCC",
+      "to": "bb2:bp21",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 2660,
+          "y": 680
+        },
+        {
+          "x": 2180,
+          "y": 680
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w4",
+      "from": "esp321:GND",
+      "to": "bb2:bn26",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 1160,
+          "y": 420
+        },
+        {
+          "x": 1160,
+          "y": 740
+        },
+        {
+          "x": 2300,
+          "y": 740
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w6",
+      "from": "lm25961:OUT-",
+      "to": "bb2:bn27",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 2320,
+          "y": 1320
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w11",
+      "from": "hcsr041:GND",
+      "to": "bb2:bn28",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 1680,
+          "y": 220
+        },
+        {
+          "x": 2340,
+          "y": 220
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w12",
+      "from": "linearray1:GND",
+      "to": "bb2:bn29",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 2180,
+          "y": 480
+        },
+        {
+          "x": 2360,
+          "y": 480
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w13",
+      "from": "e18d80nk1:GND",
+      "to": "bb2:bn30",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 2760,
+          "y": -40
+        },
+        {
+          "x": 2380,
+          "y": -40
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w14",
+      "from": "lcd1602i2c1:GND",
+      "to": "bb2:bn31",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 2640,
+          "y": 1100
+        },
+        {
+          "x": 2420,
+          "y": 1100
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w15",
+      "from": "microswitch2:COM",
+      "to": "bb2:bn32",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 3060,
+          "y": 1560
+        },
+        {
+          "x": 2440,
+          "y": 1560
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w16",
+      "from": "microswitch1:COM",
+      "to": "bb2:bn33",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 3240,
+          "y": 1280
+        },
+        {
+          "x": 2460,
+          "y": 1280
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w17",
+      "from": "drv88331:GND",
+      "to": "bb2:bn34",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 3160,
+          "y": 520
+        },
+        {
+          "x": 3160,
+          "y": 540
+        },
+        {
+          "x": 2480,
+          "y": 540
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w18",
+      "from": "drv88332:GND",
+      "to": "bb2:bn35",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 3220,
+          "y": 200
+        },
+        {
+          "x": 3220,
+          "y": 740
+        },
+        {
+          "x": 2500,
+          "y": 740
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w19",
+      "from": "estop1:2",
+      "to": "bb2:bn36",
+      "color": "#000005",
+      "bends": [
+        {
+          "x": 3520,
+          "y": 940
+        },
+        {
+          "x": 2540,
+          "y": 940
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w5",
+      "from": "esp321:VIN",
+      "to": "bb2:bp16",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 1000,
+          "y": 460
+        },
+        {
+          "x": 1000,
+          "y": 560
+        },
+        {
+          "x": 2060,
+          "y": 560
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w20",
+      "from": "esp321:D32",
+      "to": "bb2:a18",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 1120,
+          "y": 280
+        },
+        {
+          "x": 1120,
+          "y": 680
+        },
+        {
+          "x": 2020,
+          "y": 680
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w21",
+      "from": "esp321:D33",
+      "to": "bb2:a17",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 1040,
+          "y": 300
+        },
+        {
+          "x": 1040,
+          "y": 840
+        },
+        {
+          "x": 2000,
+          "y": 840
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w22",
+      "from": "microswitch2:NO",
+      "to": "bb2:b17",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 3120,
+          "y": 1200
+        },
+        {
+          "x": 1960,
+          "y": 1200
+        },
+        {
+          "x": 1960,
+          "y": 460
+        },
+        {
+          "x": 2000,
+          "y": 460
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w23",
+      "from": "microswitch1:NO",
+      "to": "bb2:b18",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 3300,
+          "y": 1140
+        },
+        {
+          "x": 2020,
+          "y": 1140
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w24",
+      "from": "esp321:D25",
+      "to": "bb2:a19",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 1080,
+          "y": 320
+        },
+        {
+          "x": 1080,
+          "y": 800
+        },
+        {
+          "x": 2040,
+          "y": 800
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w25",
+      "from": "estop1:1",
+      "to": "bb2:b19",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 3480,
+          "y": 980
+        },
+        {
+          "x": 2040,
+          "y": 980
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w26",
+      "from": "linearray1:S1",
+      "to": "esp321:D34",
+      "color": "#d94f9c",
+      "bends": [
+        {
+          "x": 2220,
+          "y": -40
+        },
+        {
+          "x": 1120,
+          "y": -40
+        },
+        {
+          "x": 1120,
+          "y": 240
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w27",
+      "from": "linearray1:S2",
+      "to": "esp321:D35",
+      "color": "#d94f9c",
+      "bends": [
+        {
+          "x": 2240,
+          "y": -80
+        },
+        {
+          "x": 1160,
+          "y": -80
+        },
+        {
+          "x": 1160,
+          "y": 260
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w28",
+      "from": "linearray1:S3",
+      "to": "esp321:VP",
+      "color": "#d94f9c",
+      "bends": [
+        {
+          "x": 2260,
+          "y": 0
+        },
+        {
+          "x": 1080,
+          "y": 0
+        },
+        {
+          "x": 1080,
+          "y": 200
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w29",
+      "from": "linearray1:S4",
+      "to": "esp321:VN",
+      "color": "#d94f9c",
+      "bends": [
+        {
+          "x": 2280,
+          "y": 40
+        },
+        {
+          "x": 1200,
+          "y": 40
+        },
+        {
+          "x": 1200,
+          "y": 220
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w30",
+      "from": "linearray1:S5",
+      "to": "esp321:D26",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 2300,
+          "y": 80
+        },
+        {
+          "x": 840,
+          "y": 80
+        },
+        {
+          "x": 840,
+          "y": 340
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w31",
+      "from": "hcsr041:TRIG",
+      "to": "esp321:D5",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 1640,
+          "y": 140
+        },
+        {
+          "x": 1460,
+          "y": 140
+        },
+        {
+          "x": 1460,
+          "y": 320
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w32",
+      "from": "hcsr041:ECHO",
+      "to": "esp321:D18",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 1660,
+          "y": 180
+        },
+        {
+          "x": 1620,
+          "y": 180
+        },
+        {
+          "x": 1620,
+          "y": 300
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w33",
+      "from": "e18d80nk1:OUT",
+      "to": "esp321:D27",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 2780,
+          "y": -80
+        },
+        {
+          "x": 1000,
+          "y": -80
+        },
+        {
+          "x": 1000,
+          "y": 360
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w34",
+      "from": "drv88331:AOUT1",
+      "to": "dcmotor2:1",
+      "color": "#20b2c6",
+      "bends": [
+        {
+          "x": 3400,
+          "y": 500
+        },
+        {
+          "x": 3400,
+          "y": 680
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w35",
+      "from": "drv88331:AOUT2",
+      "to": "dcmotor2:2",
+      "color": "#8a5cf5",
+      "bends": [
+        {
+          "x": 3440,
+          "y": 520
+        },
+        {
+          "x": 3440,
+          "y": 720
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w36",
+      "from": "drv88331:BOUT1",
+      "to": "dcmotor1:1",
+      "color": "#20b2c6",
+      "bends": [
+        {
+          "x": 3480,
+          "y": 620
+        },
+        {
+          "x": 3480,
+          "y": 460
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w37",
+      "from": "drv88331:BOUT2",
+      "to": "dcmotor1:2",
+      "color": "#8a5cf5",
+      "bends": [
+        {
+          "x": 3520,
+          "y": 640
+        },
+        {
+          "x": 3520,
+          "y": 500
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w38",
+      "from": "dcmotor3:1",
+      "to": "drv88332:BOUT1",
+      "color": "#20b2c6",
+      "bends": [
+        {
+          "x": 3800,
+          "y": 20
+        },
+        {
+          "x": 3800,
+          "y": 300
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w39",
+      "from": "dcmotor3:2",
+      "to": "drv88332:BOUT2",
+      "color": "#8a5cf5",
+      "bends": [
+        {
+          "x": 3760,
+          "y": 60
+        },
+        {
+          "x": 3760,
+          "y": 320
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w40",
+      "from": "drv88332:AOUT1",
+      "to": "dcmotor4:1",
+      "color": "#20b2c6",
+      "bends": [
+        {
+          "x": 3380,
+          "y": 180
+        },
+        {
+          "x": 3380,
+          "y": 240
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w41",
+      "from": "drv88332:AOUT2",
+      "to": "dcmotor4:2",
+      "color": "#8a5cf5",
+      "bends": [
+        {
+          "x": 3820,
+          "y": 200
+        },
+        {
+          "x": 3820,
+          "y": 280
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w42",
+      "from": "esp321:D13",
+      "to": "drv88331:AIN1",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 960,
+          "y": 440
+        },
+        {
+          "x": 960,
+          "y": 580
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w43",
+      "from": "esp321:D14",
+      "to": "drv88331:AIN2",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 720,
+          "y": 380
+        },
+        {
+          "x": 720,
+          "y": 600
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w44",
+      "from": "esp321:RX2",
+      "to": "drv88331:BIN1",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 1540,
+          "y": 360
+        },
+        {
+          "x": 1540,
+          "y": 620
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w45",
+      "from": "esp321:TX2",
+      "to": "drv88331:BIN2",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 1580,
+          "y": 340
+        },
+        {
+          "x": 1580,
+          "y": 640
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w46",
+      "from": "drv88332:AIN1",
+      "to": "esp321:D19",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 3180,
+          "y": 260
+        },
+        {
+          "x": 3180,
+          "y": 280
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w47",
+      "from": "esp321:D23",
+      "to": "drv88332:AIN2",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 2340,
+          "y": 180
+        },
+        {
+          "x": 2340,
+          "y": 280
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w48",
+      "from": "drv88332:BIN1",
+      "to": "esp321:D4",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 3140,
+          "y": 300
+        },
+        {
+          "x": 3140,
+          "y": 380
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w49",
+      "from": "drv88332:BIN2",
+      "to": "esp321:D15",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 3100,
+          "y": 320
+        },
+        {
+          "x": 3100,
+          "y": 440
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w50",
+      "from": "drv88331:VM",
+      "to": "bb2:bp22",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 3240,
+          "y": 500
+        },
+        {
+          "x": 3240,
+          "y": 840
+        },
+        {
+          "x": 2200,
+          "y": 840
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w51",
+      "from": "drv88332:VM",
+      "to": "bb2:bp23",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 3060,
+          "y": 180
+        },
+        {
+          "x": 3060,
+          "y": 800
+        },
+        {
+          "x": 2220,
+          "y": 800
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w52",
+      "from": "esp321:D21",
+      "to": "lcd1602i2c1:SDA",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 1660,
+          "y": 260
+        },
+        {
+          "x": 1660,
+          "y": 1060
+        },
+        {
+          "x": 2680,
+          "y": 1060
+        }
+      ],
+      "locked": true
+    },
+    {
+      "id": "w53",
+      "from": "lcd1602i2c1:SCL",
+      "to": "esp321:D22",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 2700,
+          "y": 1020
+        },
+        {
+          "x": 1700,
+          "y": 1020
+        },
+        {
+          "x": 1700,
+          "y": 200
+        }
+      ],
+      "locked": true
+    }
+  ],
+  "projects": {
+    "*": {
+      "files": {
+        "sketch.ino": "// Mokxi.\n// This circuit has no board, so Run simulates the parts only.\n// Add a board and pick a program in its Firmware panel: the editor then shows\n// that program's source, and Run builds what you type here for that board.\n\nvoid setup() {\n  pinMode(13, OUTPUT);\n  Serial.begin(115200);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);\n  delay(500);\n  digitalWrite(13, LOW);\n  delay(500);\n}\n"
+      },
+      "main": "sketch.ino"
+    },
+    "esp321": {
+      "files": {
+        "sketch.ino": "#include <Arduino.h>\n#include <Wire.h>\n#include <LiquidCrystal_I2C.h>\n\n// ================= LCD =================\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n\n// ================= LINE SENSORS =================\nconst int linePins[5] = {34, 35, 36, 39, 26};\nconst int LINE_THRESHOLD = 2000;\n\n// ================= ULTRASONIC =================\nconst int TRIG = 5;\nconst int ECHO = 18;\nconst int OBSTACLE_LIMIT = 20;  // cm\n\n// ================= PACKAGE SENSOR =================\nconst int PACKAGE_SENSOR = 27;\n\n// ================= DOCK SWITCHES =================\nconst int DOCK1 = 32;\nconst int DOCK2 = 33;\n\n// ================= EMERGENCY STOP =================\nconst int ESTOP = 25;\n\n// ================= FRONT MOTOR DRIVER =================\nconst int FL_IN1 = 13;\nconst int FL_IN2 = 14;\nconst int FR_IN1 = 16;\nconst int FR_IN2 = 17;\n\n// ================= REAR MOTOR DRIVER =================\nconst int RL_IN1 = 19;\nconst int RL_IN2 = 23;\nconst int RR_IN1 = 4;\nconst int RR_IN2 = 15;\n\n// ================= SPEED SETTINGS =================\nint baseSpeed = 130;\nint turnSpeed = 90;\n\n// ================= SYSTEM STATE =================\nbool packageDetected = false;\nint distanceCM = -1;\n\n// =================================================\n// SETUP\n// =================================================\n\nvoid setup() {\n  Serial.begin(115200);\n\n  // Line sensors\n  for (int i = 0; i < 5; i++) {\n    pinMode(linePins[i], INPUT);\n  }\n\n  // Ultrasonic\n  pinMode(TRIG, OUTPUT);\n  pinMode(ECHO, INPUT);\n\n  // Package sensor\n  pinMode(PACKAGE_SENSOR, INPUT);\n\n  // Dock switches\n  pinMode(DOCK1, INPUT_PULLUP);\n  pinMode(DOCK2, INPUT_PULLUP);\n\n  // Emergency stop\n  pinMode(ESTOP, INPUT_PULLUP);\n\n  // Motor pins\n  pinMode(FL_IN1, OUTPUT);\n  pinMode(FL_IN2, OUTPUT);\n  pinMode(FR_IN1, OUTPUT);\n  pinMode(FR_IN2, OUTPUT);\n  pinMode(RL_IN1, OUTPUT);\n  pinMode(RL_IN2, OUTPUT);\n  pinMode(RR_IN1, OUTPUT);\n  pinMode(RR_IN2, OUTPUT);\n\n  // LCD\n  lcd.init();\n  lcd.backlight();\n\n  stopMotors();\n\n  lcd.setCursor(0, 0);\n  lcd.print(\"Carrier Starting\");\n  delay(1000);\n\n  lcd.clear();\n  lcd.print(\"System Ready\");\n\n  Serial.println(\"Carrier Ready\");\n}\n\n// =================================================\n// MAIN LOOP\n// =================================================\n\nvoid loop() {\n\n  // 1. Emergency stop\n  if (digitalRead(ESTOP) == LOW) {\n    stopMotors();\n    displayStatus(\"EMERGENCY STOP\");\n    return;\n  }\n\n  // 2. Dock detection\n  if (digitalRead(DOCK1) == LOW ||\n      digitalRead(DOCK2) == LOW) {\n    stopMotors();\n    displayStatus(\"DOCKED\");\n    return;\n  }\n\n  // 3. Check obstacle\n  distanceCM = getDistance();\n\n  if (distanceCM > 0 && distanceCM <= OBSTACLE_LIMIT) {\n    stopMotors();\n    displayStatus(\"OBSTACLE\");\n    return;\n  }\n\n  // 4. Check package\n  packageDetected = digitalRead(PACKAGE_SENSOR);\n\n  // 5. Follow line\n  followLine();\n\n  // 6. Serial output\n  Serial.print(\"Distance: \");\n  Serial.print(distanceCM);\n  Serial.print(\" cm | Package: \");\n  Serial.println(packageDetected ? \"Detected\" : \"Absent\");\n\n  delay(20);\n}\n\n// =================================================\n// LINE FOLLOWING\n// =================================================\n\nvoid followLine() {\n\n  int values[5];\n\n  for (int i = 0; i < 5; i++) {\n    values[i] = analogRead(linePins[i]);\n  }\n\n  bool s1 = values[0] > LINE_THRESHOLD;\n  bool s2 = values[1] > LINE_THRESHOLD;\n  bool s3 = values[2] > LINE_THRESHOLD;\n  bool s4 = values[3] > LINE_THRESHOLD;\n  bool s5 = values[4] > LINE_THRESHOLD;\n\n  if (s3) {\n    moveForward(baseSpeed, baseSpeed);\n  }\n  else if (s2) {\n    moveForward(turnSpeed, baseSpeed);\n  }\n  else if (s1) {\n    moveForward(0, baseSpeed);\n  }\n  else if (s4) {\n    moveForward(baseSpeed, turnSpeed);\n  }\n  else if (s5) {\n    moveForward(baseSpeed, 0);\n  }\n  else {\n    stopMotors();\n  }\n}\n\n// =================================================\n// MOTOR CONTROL\n// =================================================\n\nvoid motorControl(int pin1, int pin2, int speedValue) {\n\n  speedValue = constrain(speedValue, -255, 255);\n\n  if (speedValue > 0) {\n    analogWrite(pin1, speedValue);\n    analogWrite(pin2, 0);\n  }\n  else if (speedValue < 0) {\n    analogWrite(pin1, 0);\n    analogWrite(pin2, abs(speedValue));\n  }\n  else {\n    analogWrite(pin1, 0);\n    analogWrite(pin2, 0);\n  }\n}\n\nvoid moveForward(int leftSpeed, int rightSpeed) {\n\n  motorControl(FL_IN1, FL_IN2, leftSpeed);\n  motorControl(RL_IN1, RL_IN2, leftSpeed);\n\n  motorControl(FR_IN1, FR_IN2, rightSpeed);\n  motorControl(RR_IN1, RR_IN2, rightSpeed);\n}\n\nvoid stopMotors() {\n\n  motorControl(FL_IN1, FL_IN2, 0);\n  motorControl(FR_IN1, FR_IN2, 0);\n  motorControl(RL_IN1, RL_IN2, 0);\n  motorControl(RR_IN1, RR_IN2, 0);\n}\n\n// =================================================\n// ULTRASONIC SENSOR\n// =================================================\n\nint getDistance() {\n\n  digitalWrite(TRIG, LOW);\n  delayMicroseconds(2);\n\n  digitalWrite(TRIG, HIGH);\n  delayMicroseconds(10);\n\n  digitalWrite(TRIG, LOW);\n\n  long duration = pulseIn(ECHO, HIGH, 30000);\n\n  if (duration == 0) {\n    return -1;\n  }\n\n  return (int)(duration * 0.0343 / 2);\n}\n\n// =================================================\n// LCD STATUS\n// =================================================\n\nvoid displayStatus(const char* message) {\n\n  lcd.clear();\n  lcd.setCursor(0, 0);\n  lcd.print(message);\n\n  Serial.println(message);\n}"
+      },
+      "main": "sketch.ino"
+    }
+  }
+}
